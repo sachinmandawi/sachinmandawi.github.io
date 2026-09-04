@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Mandawi | Mobile Developer & Creator of NetCordon</title>
+    <meta name="description" content="Official developer website of Sachin Mandawi. Creator of NetCordon - Next-Gen Android Firewall and Network Privacy Guardian.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090D16;
+            --bg-surface: #111827;
+            --bg-card: #1F2937;
+            --emerald-primary: #10B981;
+            --emerald-hover: #059669;
+            --emerald-glow: rgba(16, 185, 129, 0.15);
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --border-subtle: #374151;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 22, 0.85);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .brand-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #10B981, #3B82F6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1rem;
+            color: #FFFFFF;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--emerald-primary);
+        }
+
+        .btn-nav {
+            padding: 8px 18px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--emerald-primary);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: var(--emerald-primary);
+            color: #FFFFFF;
+        }
+
+        .hero {
+            padding: 80px 8% 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 30px;
+            color: var(--emerald-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge span.pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--emerald-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald-primary);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, #10B981, #34D399, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 36px;
+        }
+
+        /* App Spotlight Card */
+        .spotlight-container {
+            padding: 0 8% 70px;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .app-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #10B981, #3B82F6, #10B981);
+        }
+
+        .app-icon-wrapper img {
+            width: 130px;
+            height: 130px;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+            background: #1F2937;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .app-meta h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-package {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .app-desc {
+            color: #D1D5DB;
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .feat-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+        }
+
+        .feat-item h4 {
+            font-size: 0.95rem;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .feat-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Layout */
+        .section-box {
+            padding: 60px 8%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .policy-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            font-size: 0.95rem;
+            color: #D1D5DB;
+        }
+
+        .policy-card h3 {
+            color: #FFFFFF;
+            font-size: 1.15rem;
+            margin: 20px 0 8px;
+        }
+
+        .policy-card h3:first-child {
+            margin-top: 0;
+        }
+
+        .policy-card ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .policy-card li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            padding: 40px 8%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--emerald-primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .app-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .app-icon-wrapper img {
+                margin: 0 auto;
+            }
+            .app-meta h2 {
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="brand">
+            <div class="brand-avatar">S</div>
+            <span>Sachin Mandawi</span>
+        </a>
+        <nav>
+            <a href="#apps">Apps</a>
+            <a href="#privacy">Privacy</a>
+            <a href="app-ads.txt" class="btn-nav">app-ads.txt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Independent Android Developer
+        </div>
+        <h1>Empowering Mobile Users with <br><span class="highlight">Privacy, Security & Control</span></h1>
+        <p>Creating performant, transparent, and utility-driven mobile applications tailored for modern Android users.</p>
+    </section>
+
+    <div class="spotlight-container" id="apps">
+        <div class="app-card">
+            <div class="app-icon-wrapper">
+                <img src="logo.png" alt="NetCordon App Icon">
+            </div>
+            <div class="app-meta">
+                <h2>NetCordon</h2>
+                <div class="app-package">com.sachinmandawi.netcordon</div>
+                <p class="app-desc">
+                    A standalone, zero-root Android Firewall and Data Traffic Guardian. Powered by Shizuku and native Android NetworkPolicy, NetCordon provides total, granular control over per-app Wi-Fi and Cellular access with zero VPN latency.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feat-item">
+                        <h4>🛡️ 3-Tier Firewall</h4>
+                        <p>Smart Shield, Total Blackout, or Unrestricted access per package.</p>
+                    </div>
+                    <div class="feat-item">
+                        <h4>⚡ Zero-Root Latency</h4>
+                        <p>Direct Linux netpolicy rule injection via Shizuku binder IPC.</p>
+                    </div>
+                    <div class="feat-item">
+                        <h4>📡 Real-Time Radar</h4>
+                        <p>Instant background data leak notifications & tracker severance.</p>
+                    </div>
+                    <div class="feat-item">
+                        <h4>🔒 Biometric Lock</h4>
+                        <p>Fingerprint, face, and hardware-backed device PIN authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-box" id="privacy">
+        <h2 class="section-title">Privacy Policy</h2>
+        <p class="section-subtitle">Last updated: September 2026 &bull; Applicable to NetCordon & all distributed utilities.</p>
+
+        <div class="policy-card">
+            <h3>1. Zero Data Harvesting</h3>
+            <p>NetCordon is architected from the ground up to respect your digital sovereignty. We do not collect, intercept, inspect, store, or sell any network traffic, visited URLs, DNS queries, or app activity transmitted through your device.</p>
+
+            <h3>2. Local On-Device Execution</h3>
+            <p>All firewall rules, data quotas, hourly schedules, and telemetry statistics are stored and processed strictly within your device's encrypted local storage (EncryptedSharedPreferences and internal application database). No telemetry or tracking data leaves your device.</p>
+
+            <h3>3. Advertising & Monetization</h3>
+            <p>NetCordon integrates the official Google AdMob SDK to support development. AdMob may utilize standard mobile advertising identifiers (such as Google Advertising ID) and approximate coarse location to serve compliant, non-intrusive advertisements in adherence with Google Play and Amazon Appstore developer policies.</p>
+
+            <h3>4. Permissions Usage</h3>
+            <ul>
+                <li><strong>Network State & Internet:</strong> Used solely to monitor connectivity status and render served ads.</li>
+                <li><strong>Package Usage Stats:</strong> Queried locally to measure per-app network consumption and alert you of silent background data drain.</li>
+                <li><strong>Biometric:</strong> Facilitates on-device app locking via Android BiometricPrompt; biometric data never leaves hardware secure enclaves.</li>
+            </ul>
+
+            <h3>5. Contact & Support</h3>
+            <p>If you have any questions, bug reports, or suggestions regarding NetCordon or this privacy policy, please reach out directly at <a href="mailto:sachinmandawi@gmail.com" style="color: var(--emerald-primary);">sachinmandawi@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sachin Mandawi. All rights reserved. &bull; <a href="app-ads.txt">app-ads.txt (IAB Verification)</a> &bull; <a href="https://github.com/sachinmandawi" target="_blank">GitHub Profile</a></p>
+    </footer>
+
+</body>
+</html>
